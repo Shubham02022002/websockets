@@ -16,6 +16,10 @@ function App() {
       console.log("Message: ", message.data);
       setMessages((m) => [...m, message.data]);
     };
+
+    return () => {
+      socket.close();
+    };
   }, []);
 
   if (!socket) {
